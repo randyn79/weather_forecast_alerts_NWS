@@ -88,7 +88,7 @@ Here is your weather forecast and alerts.
 
     
 base_url = 'https://api.weather.gov'
-headers = {'User-Agent': 'Learning API App, randynoles@gmail.com'}
+headers = {'User-Agent': '<ENTER APP NAME>, <ENTER YOUR CONTACT EMAIL>'}
 
 if __name__ == "__main__":
     forecasts = get_forecast(base_url, headers)
