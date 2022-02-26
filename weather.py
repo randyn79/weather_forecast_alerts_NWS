@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import requests
 import json
 import smtplib
@@ -10,7 +12,7 @@ def get_forecast(base_url: str, headers: dict) -> list:
     response = requests.get(url, headers=headers)
     nws_response = response.json()
     forecasts = []
-   
+
     for i in nws_response['properties']['periods']:
         forecast_text = f'''
 ====================================
@@ -23,7 +25,7 @@ Temp: {i['temperature']} {i['temperatureUnit']}  |  Wind: {i['windSpeed']} {i['w
 ------------------------------------'''
         forecasts.append(forecast_text)
     return forecasts
-   
+
 
 def get_alerts(base_url: str, headers: dict) -> list:
     '''Gets weather alerts from the National Weather Service API https://www.weather.gov/documentation/services-web-api'''
@@ -86,7 +88,7 @@ Here is your weather forecast and alerts.
         server.login(sender_email, password)
         server.sendmail(sender_email, receiver_email, message)
 
-    
+
 base_url = 'https://api.weather.gov'
 headers = {'User-Agent': '<ENTER APP NAME>, <ENTER YOUR CONTACT EMAIL>'}
 
